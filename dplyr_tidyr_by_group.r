@@ -3,13 +3,13 @@
 ## desc:      dplyr and tidyr functions operating in batches
 
 ## use case:  trying to gather/spread on a large dataset (>2MM)
-##            tends to result in too large an operation for the
-##            C stack supporting tidyr to handle.  Instead,
-##            wanted to create a function that could perform the
-##            tidyr functions on a subgroup and ultimately group 
-##            all subgroups together.  Surely not the most
-##            efficient way, but successfully cleared the memory
-##            problem I was encountering.
+##            tends to result in too large an operation in
+##            memory. Instead, wanted to create a function that
+##            could perform the tidyr functions on a subgroup
+##            and ultimately group all subgroups together.
+##
+##            Surely not the most efficient way, but successfully
+##            cleared the memory problem I was encountering.
 
 ## expecting the dataset to work on, how many groups to process, which measure columns to gather, and what key to spread on
 fct_process_groups <- function(too_large_data, number_of_groups, measure_range, spread_col_name){
